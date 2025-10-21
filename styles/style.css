@@ -15,7 +15,9 @@
   background-attachment: fixed;
   display: grid;
   justify-content: center;
+  justify-items: center;
   padding: 0;
+  margin-block: 100px;
 }
 .stretching-block {
   max-width: clamp(375px, 90vw, 700px);
@@ -27,7 +29,6 @@
   justify-content: center;
   font-family: var(--accent-font);
   background-color: #fff;
-  margin-block: 100px;
   gap: 20px;
   height: clamp(327px, calc(327px + (100vw - 375px) * 0.0385), 368px);
   border: 2px solid black;
