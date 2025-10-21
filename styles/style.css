@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--accent-font);
-  background-color: #fff;
+  background-color: var(--main-color);
   gap: 20px;
   height: clamp(327px, calc(327px + (100vw - 375px) * 0.0385), 368px);
   border: 2px solid black;
@@ -47,8 +47,8 @@
   margin-block-end: 50px;
 }
 .cards__list-card {
-  border: 2px solid #000;
-  background-color: #fff;
+  border: 2px solid var(--accent-color);
+  background-color: var(--main-color);
   display: flex;
   flex-direction: column;
 }
@@ -74,12 +74,12 @@
   font-family: var(--accent-font);
   opacity: 50%;
   mix-blend-mode: hard-light;
-  text-shadow: 1px 1px 0#fff;
+  text-shadow: 1px 1px 0var(--main-color);
 }
-@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+@supports ((text-stroke: 1px var(--accent-color)) or (-webkit-text-stroke: 1px var(--accent-color))) {
   .card__label {
-    -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--main-color);
+    text-stroke: 1px var(--main-color);
     text-shadow: none;
   }
 }
@@ -128,21 +128,21 @@
 }
 .button__text {
   position: relative;
-  color: #fff;
+  color: var(--main-color);
   z-index: 2;
   mix-blend-mode: difference;
   white-space: normal;
   flex: 1;
 }
 .card__icon-button:focus-visible {
-  outline: 2px solid #000;
+  outline: 2px solid var(--accent-color);
 }
 .button-styles {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--main-color);
+  border: 2px solid var(--accent-color);
   font-family: var(--accent-font);
   padding-inline: 35px;
   padding-block: 10.5px;
@@ -159,7 +159,7 @@
   width: 100%;
   height: 100%;
   margin-block-start: auto;
-  background-color: #ffffff;
+  background-color: var(--main-color)fff;
   transition: 0.5s ease-in-out;
   transform: translateX(-100%);
   mix-blend-mode: difference;
@@ -170,7 +170,7 @@
 }
 .button-styles:focus {
   outline: none;
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 var(--accent-color);
 }
 .filter__low-saturation {
   filter: saturate(20%);
@@ -211,7 +211,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: var(--main-color)fff;
   transition: 0.5s ease-in-out;
   transform: translateX(-100%);
   mix-blend-mode: difference;
@@ -222,7 +222,7 @@
 }
 .save-button:focus {
   outline: none;
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 var(--accent-color);
 }
 .save-button .floppy {
   display: block;
@@ -231,7 +231,7 @@
 }
 .save-button .button__text {
   position: relative;
-  color: #fff;
+  color: var(--main-color);
   z-index: 2;
   mix-blend-mode: difference;
 }
@@ -248,8 +248,8 @@
   font-family: var(--accent-font);
   font-size: 14px;
   text-transform: uppercase;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--main-color);
+  border: 2px solid var(--accent-color);
   font-size: 14px;
 }
 .popup-container__header {
@@ -320,8 +320,8 @@
 }
 .save-button__dialog {
   padding: 0;
-  border: 2px solid #000;
-  background-color: #fff;
+  border: 2px solid var(--accent-color);
+  background-color: var(--main-color);
 }
 @media (width >= 1440px) {
   .header {
