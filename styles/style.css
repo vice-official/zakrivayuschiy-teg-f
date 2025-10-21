@@ -1,16 +1,358 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font), "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+    sans-serif;
+  font-variation-settings: "wght" var(--card-paragraph-weight), "slnt" 0;
+  background-image: repeating-linear-gradient(
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: grid;
+  justify-content: center;
+  padding: 0;
+}
+.stretching-block {
+  max-width: clamp(375px, 90vw, 700px);
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--accent-font);
+  background-color: #fff;
+  margin-block: 100px;
+  gap: 20px;
+  height: clamp(327px, calc(327px + (100vw - 375px) * 0.0385), 368px);
+  border: 2px solid black;
+}
+.header__heading {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+.header__subheading {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+.cards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 49px;
+  margin-block-end: 50px;
+}
+.cards__list-card {
+  border: 2px solid #000;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.card__heading {
+  font-variation-settings: "wght" var(--card-heading-weight);
+  padding-inline: 10px;
+  padding-block: 5px;
+  letter-spacing: 0%;
+  font-size: 18px;
+}
+.card__image-wrapper {
+  position: relative;
+}
+.card__image {
+  width: 100%;
+  display: block;
+}
+.card__label {
+  position: absolute;
+  font-size: 14px;
+  top: 25px;
+  right: 25px;
+  font-family: var(--accent-font);
+  opacity: 50%;
+  mix-blend-mode: hard-light;
+  text-shadow: 1px 1px 0#fff;
+}
+@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+  .card__label {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    text-shadow: none;
+  }
+}
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-weight: var(--card-paragraph-weight);
+  font-size: 18px;
+  line-height: 21px;
+}
+.card__buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+.card__text,
+.card__buttons {
+  padding-inline: 25px;
+  margin-block: 25px;
+}
+
+.card__icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: none;
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  cursor: pointer;
+  transition: outline-color 0.2s ease;
+  padding-block: 0;
+}
+.like-icon {
+  min-inline-size: 40px;
+  min-block-size: 40px;
+  display: block;
+}
+.card__like-button {
+  max-inline-size: 130px;
+  max-block-size: 38px;
+}
+.button__text {
+  position: relative;
+  color: #fff;
+  z-index: 2;
+  mix-blend-mode: difference;
+  white-space: normal;
+  flex: 1;
+}
+.card__icon-button:focus-visible {
+  outline: 2px solid #000;
+}
+.button-styles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  font-family: var(--accent-font);
+  padding-inline: 35px;
+  padding-block: 10.5px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 0 0 transparent;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.button-styles::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-block-start: auto;
+  background-color: #ffffff;
+  transition: 0.5s ease-in-out;
+  transform: translateX(-100%);
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+.button-styles:hover::after {
+  transform: translateX(0);
+}
+.button-styles:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 #000;
+}
+.filter__low-saturation {
+  filter: saturate(20%);
+}
+.filter__high-saturation {
+  filter: saturate(200%);
+}
+.filter__hue-rotate {
+  filter: hue-rotate(30deg);
+}
+.filter__invert {
+  filter: invert(0.7);
+}
+.filter__sepia {
+  filter: sepia(80%);
+}
+.filter__blur {
+  filter: blur(1rem);
+}
+.filter__multi {
+  filter: sepia(1) contrast(2) brightness(200%);
+}
+.save-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  justify-self: center;
+  font-family: var(--accent-font);
+  transition: 0.3s ease;
+  max-block-size: 84px;
+  gap: 8px;
+  padding-inline: 20px;
+  padding-block: 17px;
+}
+.save-button::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  transition: 0.5s ease-in-out;
+  transform: translateX(-100%);
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+.save-button:hover::after {
+  transform: translateX(0);
+}
+.save-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 #000;
+}
+.save-button .floppy {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+.save-button .button__text {
+  position: relative;
+  color: #fff;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+.save-button__dialog[open]::backdrop {
+  backdrop-filter: brightness(30%);
+}
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-inline: 40px;
+  padding-block: 30px;
+  max-width: 341px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: #fff;
+  border: 2px solid #000;
+  font-size: 14px;
+}
+.popup-container__header {
+  display: grid;
+  grid-template-columns: 59px 1fr;
+  grid-template-rows: 1fr;
+  align-items: start;
+}
+.save-button__icon {
+  grid-column: 1;
+  min-inline-size: 28px;
+  min-block-size: 28px;
+}
+.save-button__dialog .save-button__icon {
+  width: 39px;
+  height: 39px;
+  align-self: center;
+}
+.menu-dialog__paragraph {
+  grid-column: 2;
+  line-height: 150%;
+}
+.like-icon .contour {
+  transition: fill 0.1s linear;
+}
+.like-icon .core {
+  transition: fill 0.3s linear 0.03s;
+}
+.like-icon .main-body {
+  transition: fill 0.3s linear;
+}
+.like-icon .sparks {
+  opacity: 0;
+}
+.like-icon:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear 0.05s;
+}
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.05s;
+}
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.03s;
+}
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.06s;
+}
+.like-icon.is-liked .sparks {
+  animation: flash 0.3s 0.3s ease-in;
+}
+.like-icon.is-liked.heart {
+  animation: scaling 0.3s 0.1s forwards;
+}
+.save-button__dialog {
+  padding: 0;
+  border: 2px solid #000;
+  background-color: #fff;
+}
+@media (width >= 1440px) {
+  .header {
+    margin-block-end: 98px;
+  }
+  .card__image {
+    aspect-ratio: 1/1;
+  }
+  .card__text {
+    margin-block: 27px;
+  }
+  .save-button {
+    flex-direction: row;
+    gap: 8px;
+    padding: 15px 20px;
+    max-block-size: 55px;
+    max-inline-size: 335px;
+  }
+  .save-button__icon {
+    min-inline-size: 21px;
+    min-block-size: 21px;
+  }
+  .save-button .floppy {
+    width: 21px;
+    height: 21px;
+    margin: 0;
+  }
+  .save-button .button__text {
+    margin: 0;
+    white-space: nowrap;
+  }
+  .popup-container {
+    padding-inline: 30px;
+  }
 }
