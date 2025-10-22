@@ -1,12 +1,13 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 
 :root {
-    --main-font: 'Inter-Variable';
-    --accent-font: 'PressStart2P-Regular';
-    --card-heading-weight: 715;
-    --card-paragraph-weight: 410;
-    --main-color: #fff;
-    --accent-color: #000;
-    --contour-color: #000;
-    --animation-fill-color: #FF0000;
+  --main-font:
+    'Inter-Variable', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --accent-font: 'PressStart2P', fantasy;
+  --card-heading-weight: 715;
+  --card-paragraph-weight: 410;
+  --main-color: #fff;
+  --accent-color: #000;
+  --contour-color: #000;
+  --animation-fill-color: #ff0000;
 }
