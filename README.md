@@ -8,3 +8,4 @@ This work is the last in the "layout" block on the Yandex Practicum educational 
 - ANIMATIONS
 - ADAPTIVE LAYOUT
 
+https://vice-official.github.io/zakrivayuschiy-teg-f/
